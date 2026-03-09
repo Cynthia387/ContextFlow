@@ -1,143 +1,70 @@
-# ContextFlow Skill
+# 🌊 ContextFlow (Skill for Claude Code)
 
-ContextFlow Skill is a Context Hierarchy Manager (CHM) runtime for preserving conversation structure as a live project state.
+A dynamic, terminal-native task management skill that keeps your AI collaborator in sync without the noise.
 
-It tracks:
-- active focus
-- subtasks and detours
-- summaries and artifacts
-- manual corrections
-- injected context for future answers
+![Claude Code](https://img.shields.io/badge/Claude%20Code-Purple?style=flat-square&color=8B5CF6)
+![Status: Silent-Mode Active](https://img.shields.io/badge/Status-Silent--Mode%20Active-success?style=flat-square&color=10B981)
 
-## Reading The Tree
+## Key Features
 
-The rendered context tree uses:
-- `🎯` main goal
-- `🖇️` subtask
-- `🔀` detour
-- `💡` concept
-- `🧭` decision
-- `✅` done
-- `⏳` in progress
-- `🅿️` parked
-- `⛔` blocked
+- **🔕 Silent Updates**: Background state management that runs invisibly during normal conversation
+- **🌳 Git-Tree Visualization**: ASCII-art style trees via `/context` command, rendered like `git log --graph`
+- **🔀 Detour Tracking**: Automatic branching for research questions and side explorations
+- **📊 Mermaid.js Export**: Professional mind map generation for documentation and sharing
 
-Only the current focus node expands to show summary bullets. Other nodes stay compact so the tree remains readable.
+## Visualization Example
 
-## Example Output
+When you type `/context`, ContextFlow renders a clean, structured tree:
 
 ```text
-# Context Tree
-
-[##--------] 2/8
-
-🎯 ⏳ A Project Start
-    • Build the login page.
-    • Track audit logging requirements for authentication failures.
-    ├── 🔀 ✅ A.1 JWT work
-    └── 🔀 ⏳ A.2 OAuth hardening
-        └── 💡 ⏳ A.2.1 PKCE exchange
-            ├── 🔀 ✅ A.2.1.1 Legacy callback cleanup
-            ├── 🔀 ✅ A.2.1.2 Session cookie fallback
-            ├── 🔀 ✅ A.2.1.3 Token introspection note
-            └── 🧭 ⏳ A.2.1.4 Refresh token rotation
-
-## Breadcrumb
-
-Focus: A > A.2 > A.2.1 > A.2.1.4 (Refresh token rotation)
-Next: Refresh rotation should reduce replay risk without breaking the sign-in flow.
-
-## Quick Actions
-
-[Merge] [Done] [Park]
-
-## Suggested Commands
-
-- `back`
-- `done`
-- `park`
-- `merge`
-- `rename_node <new_title>`
+📂 Project: Chrome Extension
+├── 🛠️ Core Development
+│   ├── [x] manifest.json
+│   └── [>] background.js
+├── 🔍 Research & Detours
+│   └── [ ] SidePanel API vs Popup
+└── 🚀 Deployment
+    └── [ ] Chrome Web Store Upload
 ```
 
-## CLI
+The visualization uses:
+- **Category icons** only on top-level branches (`🛠️`, `🔍`, `🚀`)
+- **Status markers** on task lines: `[ ]` (todo), `[>]` (in progress), `[x]` (completed)
+- **Standard tree connectors**: `├──`, `└──`, `│` for clear hierarchy
 
-Render the current context state:
+## Quick Start
+
+### 1. Install the Skill
+
+Run the one-click installer:
 
 ```bash
-node bin/context.ts
+sh install.sh
 ```
 
-Bootstrap a new project with the basic CHM files and folder structure:
+The installer automatically detects your OS and Claude Code skills directory. If not found, it falls back to a local `.contextflow` directory.
+
+### 2. Restart Your AI Terminal
+
+Restart or refresh your Claude Code terminal to load the skill.
+
+### 3. Start Using ContextFlow
+
+Simply begin your conversation. ContextFlow silently tracks your project state in the background.
+
+### 4. View Your Context Tree
+
+Type `/context` anytime to see your current project structure:
 
 ```bash
-sh bin/init.sh /path/to/new-project
+/context
 ```
 
-## How To Use
+Other useful commands:
+- `/done` - Mark current task complete
+- `/merge` - Merge a detour back into the main flow
+- `/export` - Generate a Mermaid.js diagram
 
-### Trigger a Detour
+---
 
-Use a side-question or concept question that is not necessary to finish the current step immediately.
-
-Examples:
-- `"Wait, how does JWT work?"`
-- `"Why do people use Tailwind instead of CSS modules?"`
-
-In the rendered UI, low-confidence detours surface a footer like:
-
-```text
-User Action Required: I've placed this in a detour. Type 'merge' if you'd rather keep this in the main flow.
-```
-
-### Read `context.ts` Output
-
-The CLI shows:
-- a progress bar for `done / total nodes`
-- a Markdown tree with emoji type/status markers
-- summary bullets only for the active focus node
-- quick actions for the current node
-- suggested commands for the next correction or navigation step
-
-Typical reading order:
-1. Check the progress bar.
-2. Read the current focus in the breadcrumb.
-3. Inspect the expanded node summary.
-4. Use quick actions or suggested commands to correct the tree if needed.
-
-### Use Manual Commands
-
-The manager supports manual correction commands when the AI places something incorrectly:
-
-- `merge_up`
-  - Merge the current node back into its parent.
-- `move_to <nodeId>`
-  - Re-parent a node into a different branch.
-- `rename_node <new_title>`
-  - Fix an AI-generated title.
-- `done`
-  - Mark the current node complete.
-- `park`
-  - Defer the current node.
-- `back`
-  - Return to the parent branch.
-
-### Savepoints
-
-At the end of each major milestone, the CHM skill should suggest a savepoint message derived from the current tree state.
-
-Example:
-
-```text
-Savepoint: feat(chm): add context injection, summary consolidation, and manual override flow
-```
-
-## Core Runtime
-
-The main runtime pieces are:
-- `src/core/manager.ts`
-- `src/services/classifier.ts`
-- `src/services/summarizer.ts`
-- `state.json`
-
-This project does not just document context. It maintains context as persistent runtime state.
+*Crafted for productive AI-human collaboration.*
