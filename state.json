@@ -1,0 +1,131 @@
+{
+  "rootId": "A",
+  "nodes": {
+    "A": {
+      "id": "A",
+      "title": "Project Start",
+      "type": "main",
+      "status": "in_progress",
+      "summary": [
+        "Build the login page.",
+        "Package ContextFlow as a distributable injectable skill with installer and standalone engine.",
+        "Refine the distribution package for cold-start behavior resilient installation and universal usage guidance.",
+        "Package ContextFlow for official Claude Code integration with MCP-lite aligned metadata and upward state search."
+      ],
+      "artifacts": [
+        "src/auth/jwt.ts",
+        "codeblock:export function verifyJwt(token: string) {"
+      ],
+      "definitionOfDone": "Ship the initial product flow.",
+      "parentId": null,
+      "childrenIds": [
+        "A.1",
+        "A.2"
+      ]
+    },
+    "A.1": {
+      "id": "A.1",
+      "title": "JWT work",
+      "type": "detour",
+      "status": "done",
+      "summary": [
+        "Understand how JWT works for authentication."
+      ],
+      "artifacts": [],
+      "definitionOfDone": "Understand JWT basics well enough to continue the login flow.",
+      "parentId": "A",
+      "childrenIds": []
+    },
+    "A.2": {
+      "id": "A.2",
+      "title": "OAuth hardening",
+      "type": "detour",
+      "status": "in_progress",
+      "summary": [
+        "Explore OAuth hardening for the login flow.",
+        "OAuth hardening must preserve the original product goal while tightening auth safety."
+      ],
+      "artifacts": [],
+      "definitionOfDone": "Choose a hardened OAuth approach for sign-in.",
+      "parentId": "A",
+      "childrenIds": [
+        "A.2.1"
+      ]
+    },
+    "A.2.1": {
+      "id": "A.2.1",
+      "title": "PKCE exchange",
+      "type": "concept",
+      "status": "in_progress",
+      "summary": [
+        "Understand the PKCE verifier and challenge exchange.",
+        "PKCE binds the authorization code to the original client request.",
+        "Review the deprecated callback route.",
+        "Document the fallback cookie strategy.",
+        "Compare token introspection with local validation."
+      ],
+      "artifacts": [],
+      "definitionOfDone": "Understand PKCE well enough to continue implementation.",
+      "parentId": "A.2",
+      "childrenIds": [
+        "A.2.1.1",
+        "A.2.1.2",
+        "A.2.1.3",
+        "A.2.1.4"
+      ]
+    },
+    "A.2.1.1": {
+      "id": "A.2.1.1",
+      "title": "Legacy callback cleanup",
+      "type": "detour",
+      "status": "done",
+      "summary": [
+        "Review the deprecated callback route."
+      ],
+      "artifacts": [],
+      "parentId": "A.2.1",
+      "childrenIds": []
+    },
+    "A.2.1.2": {
+      "id": "A.2.1.2",
+      "title": "Session cookie fallback",
+      "type": "detour",
+      "status": "done",
+      "summary": [
+        "Document the fallback cookie strategy."
+      ],
+      "artifacts": [],
+      "parentId": "A.2.1",
+      "childrenIds": []
+    },
+    "A.2.1.3": {
+      "id": "A.2.1.3",
+      "title": "Token introspection note",
+      "type": "detour",
+      "status": "done",
+      "summary": [
+        "Compare token introspection with local validation."
+      ],
+      "artifacts": [],
+      "parentId": "A.2.1",
+      "childrenIds": []
+    },
+    "A.2.1.4": {
+      "id": "A.2.1.4",
+      "title": "Refresh token rotation",
+      "type": "decision",
+      "status": "in_progress",
+      "summary": [
+        "Compare strict rotation against reuse detection.",
+        "Refresh rotation should reduce replay risk without breaking the sign-in flow."
+      ],
+      "artifacts": [],
+      "definitionOfDone": "Select the refresh token rotation policy.",
+      "parentId": "A.2.1",
+      "childrenIds": []
+    }
+  },
+  "focusPath": [
+    "A"
+  ]
+}

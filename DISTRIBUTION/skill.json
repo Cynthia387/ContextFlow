@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "mcp-lite-skill@1",
+  "name": "contextflow",
+  "displayName": "ContextFlow",
+  "version": "1.0.0",
+  "description": "A Context Hierarchy Manager skill for long-running technical conversations.",
+  "entry": {
+    "runtime": "node",
+    "path": "scripts/engine.js"
+  },
+  "commands": [
+    {
+      "name": "/context",
+      "description": "Render the current ContextFlow tree, breadcrumb, quick actions, and suggested commands.",
+      "run": {
+        "runtime": "node",
+        "path": "scripts/engine.js",
+        "args": [
+          "--view"
+        ]
+      }
+    },
+    {
+      "name": "/contextflow",
+      "description": "Alias for /context.",
+      "run": {
+        "runtime": "node",
+        "path": "scripts/engine.js",
+        "args": [
+          "--view"
+        ]
+      }
+    },
+    {
+      "name": "/done",
+      "description": "Mark the active node as done, move focus to the parent branch, and print the refreshed tree.",
+      "run": {
+        "runtime": "node",
+        "path": "scripts/engine.js",
+        "args": [
+          "--done"
+        ]
+      }
+    },
+    {
+      "name": "/merge",
+      "description": "Merge the current detour back into its parent branch."
+    },
+    {
+      "name": "/move_to",
+      "description": "Move the current node to a different parent branch."
+    },
+    {
+      "name": "/rename_node",
+      "description": "Rename the current node."
+    }
+  ]
+}
