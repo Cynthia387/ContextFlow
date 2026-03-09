@@ -2,7 +2,6 @@
 
 A dynamic, terminal-native task management skill that keeps your AI collaborator in sync without the noise.
 
-![Claude Code](https://img.shields.io/badge/Claude%20Code-Purple?style=flat-square&color=8B5CF6)
 ![Status: Silent-Mode Active](https://img.shields.io/badge/Status-Silent--Mode%20Active-success?style=flat-square&color=10B981)
 
 ## Key Features
