@@ -1,0 +1,1541 @@
+/**
+ * Side Panel 样式
+ * 现代化、类似 NotebookLM 的设计
+ */
+
+/* React Flow 基础样式（必须在最前面引入，@import 必须在所有普通规则之前） */
+@import "@xyflow/react/dist/style.css";
+
+/* ==================== 基础重置 ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Google Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #f7f5ff;
+  color: #1e293b;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ==================== 应用布局 ==================== */
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ==================== 头部 ==================== */
+/*
+  Minimal toolbar (buttons only)
+  - responsive (no clipped controls)
+  - removes verbose title/stats per user feedback
+*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  height: auto;
+  min-height: 48px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  overflow: visible;
+}
+
+.header-toolbar-left,
+.header-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.header-icon {
+  font-size: 20px;
+}
+
+.header-subtitle {
+  font-size: 12px;
+  color: #64748b;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* View mode toggle */
+.view-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  background: rgba(241, 245, 249, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  border-radius: 10px;
+}
+
+.view-toggle-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.toolbar-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.65;
+  transition: opacity 0.15s ease;
+}
+
+.view-toggle-btn:hover .toolbar-icon,
+.icon-btn:hover .toolbar-icon,
+.minimap-btn:hover .toolbar-icon,
+.refresh-btn:hover .toolbar-icon,
+.git-collapse-btn:hover .toolbar-icon {
+  opacity: 0.9;
+}
+
+.view-toggle-btn.active .toolbar-icon,
+.icon-btn.active .toolbar-icon,
+.minimap-btn.active .toolbar-icon {
+  opacity: 1;
+}
+
+.view-toggle-btn:hover {
+  background: rgba(255,255,255,0.7);
+  transform: translateY(-1px);
+}
+
+.view-toggle-btn.active {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.embedded .header {
+  min-height: 44px;
+  padding: 8px 10px;
+}
+
+.embedded .header-subtitle {
+  max-width: 160px;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+  padding: 4px 8px;
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+.stat-item {
+  white-space: nowrap;
+}
+
+.stat-item.branch {
+  color: #6366f1;
+}
+
+.refresh-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+/* MiniMap toggle button (left of refresh) */
+.minimap-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.minimap-btn:hover,
+.refresh-btn:hover {
+  background: rgba(248, 250, 252, 0.96);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+.minimap-btn.active {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+.minimap-btn:disabled,
+.refresh-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.refresh-btn .spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==================== 主内容区 ==================== */
+.main-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ==================== 图谱容器 ==================== */
+.graph-container {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  background: #f7f5ff;
+}
+
+/* React Flow overrides */
+.react-flow {
+  width: 100% !important;
+  height: 100% !important;
+  background: #f7f5ff;
+}
+
+.react-flow__controls {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: white;
+}
+
+.react-flow__controls-button:hover {
+  background: #f1f5f9;
+}
+
+.react-flow__minimap {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== ConversationGraph MiniMap（小地图）增强 ====================
+ * - 悬浮窗模式默认隐藏（由 React 逻辑控制）
+ * - 侧边栏模式默认更小 + 底部显示（由 React 逻辑控制）
+ * - 侧边栏模式支持拖动：仅顶部 handle 区域可拖动
+ */
+.cg-minimap {
+  border-radius: 8px;
+}
+
+.cg-minimap-draggable {
+  user-select: none;
+}
+
+.cg-minimap-draggable::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 18px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.cg-minimap-draggable::after {
+  content: '⋮⋮';
+  position: absolute;
+  top: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+
+.cg-minimap-draggable:hover {
+  cursor: grab;
+}
+
+.cg-minimap-dragging {
+  cursor: grabbing !important;
+}
+
+.cg-graph-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(229, 231, 235, 0.9);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.cg-toolbar-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.15s ease;
+}
+
+.cg-toolbar-btn:hover {
+  background: #f8fafc;
+}
+
+.cg-toolbar-btn.active {
+  border-color: rgba(99, 102, 241, 0.55);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+/* ==================== Round 节点样式 ==================== */
+.round-node {
+  min-width: 200px;
+  max-width: 240px;
+  background: white;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  padding: 10px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.07), 0 0 0 1px rgba(109, 40, 217, 0.05);
+}
+
+.round-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(109, 40, 217, 0.13);
+}
+
+.round-node.selected {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.22);
+}
+
+.round-node.hovered {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 节点头部 */
+.node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.node-round-number {
+  font-weight: 600;
+  font-size: 11px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expand-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.expand-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #334155;
+}
+
+/* 节点内容 */
+.node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.user-message {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.assistant-message {
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.message-role {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.message-text {
+  font-size: 11px;
+  line-height: 1.4;
+  color: #334155;
+  word-break: break-word;
+
+  /* 防止节点因为文本过长而无限变高（dagre 使用固定高度计算布局） */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 收起状态 */
+.node-collapsed {
+  text-align: center;
+  padding: 4px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* 分支指示器 */
+.branch-indicator {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #fbbf24;
+  color: #78350f;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 连接点 */
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* ==================== 空状态 ==================== */
+.empty-state {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  font-size: 14px;
+  max-width: 280px;
+}
+
+/* ==================== 错误状态 ==================== */
+.error-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.error-message p {
+  color: #dc2626;
+  margin-bottom: 16px;
+}
+
+.error-message button {
+  padding: 8px 16px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.error-message button:hover {
+  background: #4f46e5;
+}
+
+/* ==================== QA 节点样式 ==================== */
+.qa-node {
+  min-width: 220px;
+  max-width: 240px;
+  background: white;
+  border-radius: 16px;
+  padding: 10px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.qa-node:hover,
+.qa-node.hovered {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.qa-node.selected {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.28);
+}
+
+/* Question node — indigo palette */
+.qa-node.question {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.10), 0 0 0 1px rgba(99, 102, 241, 0.07);
+}
+
+.qa-node.question:hover,
+.qa-node.question.hovered {
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.16);
+}
+
+.qa-node.question.on-path {
+  background: #e0e7ff;
+  border-color: #6366f1;
+}
+
+/* Answer node — teal palette */
+.qa-node.answer {
+  background: #f0fdfa;
+  border-color: #99f6e4;
+  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.10), 0 0 0 1px rgba(20, 184, 166, 0.07);
+}
+
+.qa-node.answer:hover,
+.qa-node.answer.hovered {
+  box-shadow: 0 6px 20px rgba(20, 184, 166, 0.16);
+}
+
+.qa-node.answer.on-path {
+  background: #ccfbf1;
+  border-color: #14b8a6;
+}
+
+/* QA 节点头部 */
+.qa-node-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.qa-node-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.qa-node-label {
+  font-weight: 600;
+  font-size: 11px;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.qa-node-branch-count {
+  margin-left: auto;
+  font-size: 10px;
+  color: #64748b;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.qa-node-expand-btn {
+  width: 18px;
+  height: 18px;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  margin-left: 4px;
+}
+
+.qa-node-expand-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  color: #334155;
+}
+
+/* QA 节点内容 */
+.qa-node-content {
+  min-height: 20px;
+}
+
+.qa-node-text {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #334155;
+  word-break: break-word;
+  margin: 0;
+
+  /* 限制行数防止节点过高 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.qa-node-empty {
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* Active-path indicator */
+.qa-node-path-indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: linear-gradient(180deg, #6366f1 0%, #14b8a6 100%);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Expand/collapse answer button */
+.qa-node-expand-answer-btn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: #14b8a6;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.qa-node-expand-answer-btn:hover {
+  background: #0d9488;
+  transform: scale(1.1);
+}
+
+.qa-node-expand-answer-btn.expanded {
+  background: #64748b;
+}
+
+.qa-node-expand-answer-btn.expanded:hover {
+  background: #475569;
+}
+
+/* Inline answer displayed inside Q node */
+.qa-node-inline-answer {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: rgba(20, 184, 166, 0.10);
+  border-radius: 10px;
+  border-left: 3px solid #14b8a6;
+}
+
+.qa-node-inline-answer-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(20, 184, 166, 0.20);
+}
+
+.qa-node-inline-answer-header .qa-node-icon {
+  font-size: 12px;
+}
+
+.qa-node-inline-answer-header .qa-node-label {
+  font-size: 10px;
+  color: #0d9488;
+}
+
+.qa-node-inline-answer-content .qa-node-text {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #475569;
+  -webkit-line-clamp: 4;
+}
+
+/* Q 节点展开回答后的样式调整 */
+.qa-node.answer-expanded {
+  max-width: 280px;
+}
+
+/* Collapsed answer preview */
+.qa-node-collapsed-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 6px;
+  padding: 6px 8px;
+  background: rgba(20, 184, 166, 0.08);
+  border-radius: 10px;
+  border-left: 2px solid #14b8a6;
+}
+
+.qa-node-collapsed-answer-icon {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.qa-node-collapsed-answer-text {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #475569;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ==================== Category Tags ==================== */
+/*
+  Small pill displayed on user (Q) nodes that have been enriched by
+  classifyContent(). One of: ELABORATION, SUBTASK, DETOUR, CONTEXT_SWITCH, COMPLETION.
+*/
+.category-tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.category-tag.elaboration   { background: #ede9fe; color: #5b21b6; }
+.category-tag.subtask       { background: #dbeafe; color: #1d4ed8; }
+.category-tag.detour        { background: #fef3c7; color: #92400e; }
+.category-tag.context-switch { background: #fee2e2; color: #991b1b; }
+.category-tag.completion    { background: #d1fae5; color: #064e3b; }
+.category-tag.other         { background: #f1f5f9; color: #64748b; }
+
+/* ==================== 起始节点样式 ==================== */
+.start-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #f5f3ff;
+  border: 2px solid #c4b5fd;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #5b21b6;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.10);
+}
+
+.start-node-icon {
+  font-size: 14px;
+}
+
+.start-node-text {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==================== Git Tree View ==================== */
+.git-tree {
+  /* Font scaling (user-adjustable) */
+  --gitScale: 1;
+  --gitFont: calc(12px * var(--gitScale));
+  --gitFontSmall: calc(11px * var(--gitScale));
+  --gitFontTiny: calc(10px * var(--gitScale));
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f7f5ff;
+  overflow: hidden;
+}
+
+.git-toolbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: var(--git-toolbar-gap, 8px);
+  padding: var(--git-toolbar-pad, 10px 12px);
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* ============================================================
+   Git toolbar row layout: flex-start + margin-left:auto
+   This prevents negative gap / overlap issues at narrow widths.
+============================================================ */
+.git-toolbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--git-row-gap, 10px);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.git-toolbar-row1 {
+  flex-wrap: nowrap;
+}
+
+.git-toolbar-row2 {
+  flex-wrap: nowrap;
+}
+
+.git-toolbar-row1-right {
+  display: flex;
+  align-items: center;
+  gap: var(--git-row-gap, 8px);
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.git-toolbar-row2-right {
+  display: flex;
+  align-items: center;
+  gap: var(--git-row-gap, 6px);
+  flex-shrink: 0;
+  min-width: 0;
+  flex-wrap: nowrap;
+  margin-left: auto;
+}
+
+/* ============================================================
+   Responsive compact levels (set via data attribute)
+   Level 0: default
+   Level 1: shrink sizes/gaps
+   Level 2: hide font control
+   Level 3: hide font control + filter toggle
+============================================================ */
+.git-toolbar[data-compact="1"] {
+  --git-toolbar-gap: 6px;
+  --git-toolbar-pad: 8px 10px;
+  --git-row-gap: 6px;
+  --git-btn-size: 26px;
+  --git-slider-width: 60px;
+}
+
+.git-toolbar[data-compact="2"] {
+  --git-toolbar-gap: 6px;
+  --git-toolbar-pad: 8px 10px;
+  --git-row-gap: 4px;
+  --git-btn-size: 26px;
+}
+.git-toolbar[data-compact="2"] .git-font-control {
+  display: none !important;
+}
+
+.git-toolbar[data-compact="3"] {
+  --git-toolbar-gap: 4px;
+  --git-toolbar-pad: 6px 8px;
+  --git-row-gap: 4px;
+  --git-btn-size: 24px;
+}
+.git-toolbar[data-compact="3"] .git-font-control {
+  display: none !important;
+}
+.git-toolbar[data-compact="3"] .git-toolbar-right {
+  display: none !important;
+}
+
+.git-collapse-btn {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+
+.git-collapse-btn:hover {
+  background: rgba(248, 250, 252, 0.96);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+/* Show toolbar button (hamburger menu) - only visible when controls are hidden in embedded mode */
+.git-show-toolbar-btn {
+  width: var(--git-btn-size, 28px);
+  height: var(--git-btn-size, 28px);
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #475569;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.git-show-toolbar-btn:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+/* Show the button when it has the visible class */
+.git-show-toolbar-btn.visible {
+  display: inline-flex;
+}
+
+/* Close button in embedded mode (shown when controls are hidden) */
+.git-close-btn {
+  width: var(--git-btn-size, 28px);
+  height: var(--git-btn-size, 28px);
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #475569;
+  font-size: 14px;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.git-close-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+.git-close-btn.visible {
+  display: inline-flex;
+}
+
+
+.git-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--git-row-gap, 8px);
+  flex-shrink: 0;
+}
+
+.git-search {
+  flex: 1 1 auto;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+/*
+  Compact controls popover (filter + font):
+  In narrow widths, we hide the right-side controls and show them on hover/focus
+  of the search box.
+*/
+.git-secondary-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: none;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+  z-index: 5;
+}
+
+.git-secondary-section + .git-secondary-section {
+  margin-top: 8px;
+}
+
+.git-secondary-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Show secondary pop when toolbar-right is hidden */
+.git-toolbar[data-compact="3"] .git-search:hover .git-secondary-pop,
+.git-toolbar[data-compact="3"] .git-search:focus-within .git-secondary-pop {
+  display: block;
+}
+
+/* Legacy media query fallback - prefer data-compact attribute */
+@media (max-width: 380px) {
+  .git-toolbar:not([data-compact]) .git-toolbar-right {
+    display: none;
+  }
+
+  .git-search:hover .git-secondary-pop,
+  .git-search:focus-within .git-secondary-pop {
+    display: block;
+  }
+}
+
+
+.git-search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.git-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--gitFont);
+  color: #0f172a;
+}
+
+.git-search-clear {
+  width: var(--git-btn-size, 26px);
+  height: var(--git-btn-size, 26px);
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.git-search-clear:hover {
+  background: #eef2ff;
+  color: #3730a3;
+}
+
+.git-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--git-row-gap, 6px);
+  flex-shrink: 0;
+  min-width: 0;
+  font-size: var(--gitFontSmall);
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.git-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.git-filter-btn {
+  min-width: 28px;
+  height: var(--git-btn-size, 24px);
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: var(--gitFontSmall);
+  font-weight: 600;
+  color: #475569;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.git-font-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  height: var(--git-btn-size, 28px);
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.git-font-label {
+  font-size: var(--gitFontSmall);
+  font-weight: 700;
+  color: #475569;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.git-font-range {
+  width: var(--git-slider-width, 70px);
+  min-width: 52px;
+  accent-color: #6366f1;
+}
+
+.git-filter-btn:hover {
+  background: rgba(255,255,255,0.7);
+  transform: translateY(-1px);
+}
+
+.git-filter-btn.active {
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  color: #0f172a;
+}
+
+.git-match-count {
+  padding: 4px 8px;
+  background: #f1f5f9;
+  border-radius: 999px;
+}
+
+.git-hint {
+  opacity: 0.8;
+}
+
+.git-root {
+  flex: 1;
+  overflow: auto;
+  padding: 10px 12px 18px;
+}
+
+/* Custom scrollbar styling */
+.git-root::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.git-root::-webkit-scrollbar-track {
+  background: transparent;
+}
+.git-root::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+.git-root::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+.git-root::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/* Firefox */
+.git-root {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
+}
+
+.git-ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: fit-content;
+  min-width: 100%;
+}
+
+/*
+  Indentation rule:
+  - Linear chains should NOT keep indenting deeper and deeper.
+  - Only indent when a list represents a real branch (one->many or many->one).
+
+  The renderer adds `.git-ul-branch` / `.git-ul-flat` to nested lists.
+*/
+.git-ul .git-ul.git-ul-branch {
+  margin-left: 14px;
+  padding-left: 14px;
+  border-left: 1px solid #e2e8f0;
+}
+
+.git-ul .git-ul.git-ul-branch > .git-li {
+  position: relative;
+}
+
+.git-ul .git-ul.git-ul-branch > .git-li::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 22px;
+  width: 14px;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.git-ul .git-ul.git-ul-flat {
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
+}
+
+.git-li {
+  position: relative;
+}
+
+.git-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  min-width: fit-content;
+}
+
+.git-row:hover {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.git-row.git-selected {
+  background: #eef2ff;
+  border-color: rgba(99, 102, 241, 0.30);
+}
+
+.git-row.git-current {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+}
+
+.git-row.git-a {
+  background: rgba(20, 184, 166, 0.05);
+}
+
+.git-row.git-a:hover {
+  background: rgba(20, 184, 166, 0.08);
+  border-color: rgba(20, 184, 166, 0.20);
+}
+
+.git-expander {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  color: #64748b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease;
+}
+
+.git-expander:hover {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+.git-expander-empty {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.git-expander-empty:hover {
+  background: transparent;
+}
+
+.git-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--gitFontSmall);
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: #eef2ff;
+  color: #4f46e5;
+}
+
+.git-badge-a {
+  background: #f0fdfa;
+  color: #0d9488;
+}
+
+.git-text {
+  font-size: var(--gitFont);
+  color: #0f172a;
+  white-space: nowrap;
+}
+
+.git-meta {
+  font-size: var(--gitFontSmall);
+  color: #64748b;
+  padding: 2px 6px;
+  background: #f1f5f9;
+  border-radius: 999px;
+}
+
+/*
+  Ultra-narrow widths: hide the "N answers" pill so the panel can shrink further
+  without the row feeling cramped.
+*/
+@media (max-width: 360px) {
+  .git-meta {
+    display: none !important;
+  }
+}
+
+.git-mark {
+  background: #fde68a;
+  color: #0f172a;
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
+.git-inline-answer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  margin: 2px 0 6px 34px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: rgba(20, 184, 166, 0.05);
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.git-inline-answer:hover {
+  background: rgba(20, 184, 166, 0.08);
+  border-color: rgba(20, 184, 166, 0.25);
+}
+
+.git-inline-selected {
+  border-color: rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.06);
+}
+
+.git-inline-badge {
+  width: 16px;
+  height: 16px;
+  border-radius: 6px;
+  background: #f0fdfa;
+  color: #0d9488;
+  font-size: var(--gitFontTiny);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.git-inline-text {
+  font-size: var(--gitFont);
+  color: #0f172a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.git-no-results {
+  padding: 28px 18px;
+  text-align: center;
+  color: #64748b;
+}
+
+.git-no-results-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.git-tree-empty {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #64748b;
+}
+
+.git-tree-empty-icon {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.git-tree-empty-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.git-tree-empty-sub {
+  font-size: 12px;
+  max-width: 280px;
+  text-align: center;
+}
+
+/* ==================== 响应式调整 ==================== */
+@media (max-width: 400px) {
+  .round-node {
+    min-width: 160px;
+    max-width: 180px;
+    font-size: 11px;
+  }
+
+  .qa-node {
+    min-width: 180px;
+    max-width: 200px;
+    font-size: 11px;
+  }
+
+  .header {
+    padding: 10px 12px;
+  }
+
+  .header-title {
+    font-size: 14px;
+  }
+}

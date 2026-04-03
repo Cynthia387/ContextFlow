@@ -1,0 +1,35 @@
+{
+  "name": "contextflow",
+  "version": "0.6.0",
+  "description": "ContextFlow — map ChatGPT threads as a navigable Q&A graph (Chrome extension).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.cjs",
+    "build:watch": "node build.cjs --watch",
+    "build:release": "node build.cjs --release",
+    "release": "node scripts/release.js",
+    "dev": "npm run build:watch",
+    "lint": "eslint src/",
+    "format": "prettier --write \"src/**/*.{js,jsx,json,css,html}\""
+  },
+  "keywords": [
+    "chatgpt",
+    "chrome-extension",
+    "graph",
+    "visualization"
+  ],
+  "author": "Cynthia387",
+  "license": "MIT",
+  "dependencies": {
+    "@xyflow/react": "^12.0.0",
+    "dagre": "^0.8.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "archiver": "^7.0.1",
+    "esbuild": "^0.28.0",
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0"
+  }
+}

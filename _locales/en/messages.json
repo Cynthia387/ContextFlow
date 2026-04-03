@@ -1,0 +1,476 @@
+{
+  "extName": {
+    "message": "ContextFlow",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Navigate ChatGPT as a graph: Q&A tree, Git-style timeline, search, and branch jumps—with optional context enrichment (categories, summaries).",
+    "description": "Extension description"
+  },
+  "extDefaultTitle": {
+    "message": "ContextFlow",
+    "description": "Default title for extension icon"
+  },
+
+  "debugPanelTitle": {
+    "message": "ContextFlow - Debug Panel"
+  },
+  "debugPanelSubtitle": {
+    "message": "Debug Panel - V0.6"
+  },
+  "statusSection": {
+    "message": "Status"
+  },
+  "statusExtension": {
+    "message": "Extension:"
+  },
+  "statusActive": {
+    "message": "Active"
+  },
+  "statusDatabase": {
+    "message": "Database:"
+  },
+  "statusUnknown": {
+    "message": "Unknown"
+  },
+  "statusConnected": {
+    "message": "Connected"
+  },
+  "statusError": {
+    "message": "Error"
+  },
+  "statusCurrentConv": {
+    "message": "Current Conversation:"
+  },
+  "statusNone": {
+    "message": "None"
+  },
+  "conversationsSection": {
+    "message": "Conversations"
+  },
+  "refreshListBtn": {
+    "message": "Refresh List"
+  },
+  "noConversations": {
+    "message": "No conversations loaded yet"
+  },
+  "noConversationsYet": {
+    "message": "No conversations yet"
+  },
+  "dataDetailsSection": {
+    "message": "Data Details"
+  },
+  "selectConversation": {
+    "message": "Select a conversation to view details"
+  },
+  "logsSection": {
+    "message": "Logs"
+  },
+  "clearLogsBtn": {
+    "message": "Clear Logs"
+  },
+  "systemLogLoaded": {
+    "message": "[System] Debug panel loaded"
+  },
+  "systemLogCleared": {
+    "message": "[System] Logs cleared"
+  },
+  "footerVersion": {
+    "message": "ContextFlow - Version 0.6.0"
+  },
+  "untitled": {
+    "message": "Untitled"
+  },
+  "failedToLoad": {
+    "message": "Failed to load conversations"
+  },
+  "failedToLoadDetails": {
+    "message": "Failed to load details"
+  },
+
+  "popupTitle": {
+    "message": "ContextFlow"
+  },
+  "popupSubtitle": {
+    "message": "ChatGPT conversation graph"
+  },
+  "loading": {
+    "message": "Loading..."
+  },
+  "statusLabel": {
+    "message": "Status"
+  },
+  "notConfigured": {
+    "message": "Not Configured"
+  },
+  "welcomeTitle": {
+    "message": "Welcome to ContextFlow!"
+  },
+  "welcomeMessage": {
+    "message": "ContextFlow needs your ChatGPT authentication token to load conversations.<br><br><strong>Don't worry!</strong> Your token is stored securely on your device and never leaves your browser."
+  },
+  "setupTokenBtn": {
+    "message": "Setup Token"
+  },
+  "authenticationLabel": {
+    "message": "Authentication"
+  },
+  "authenticated": {
+    "message": "Authenticated"
+  },
+  "tokenExpired": {
+    "message": "Token Expired"
+  },
+  "extensionLabel": {
+    "message": "Extension"
+  },
+  "tokenInfoTitle": {
+    "message": "Token Information"
+  },
+  "tokenLength": {
+    "message": "Length: $LENGTH$ characters",
+    "placeholders": {
+      "length": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "tokenCaptured": {
+    "message": "Captured: $TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1",
+        "example": "2 hours ago"
+      }
+    }
+  },
+  "tokenExpiredWarning": {
+    "message": "⚠️ Token has expired"
+  },
+  "updateTokenBtn": {
+    "message": "Update Token"
+  },
+  "changeTokenBtn": {
+    "message": "Change Token"
+  },
+  "clearTokenBtn": {
+    "message": "Clear Token"
+  },
+  "tokenExpiredHelp": {
+    "message": "<strong>⚠️ Your token has expired</strong><br>Please click [Update Token] to get a new token from ChatGPT."
+  },
+  "readyHelp": {
+    "message": "<strong>✓ Everything is ready!</strong><br>Visit any ChatGPT conversation page to see the branch visualization."
+  },
+  "confirmClearToken": {
+    "message": "Are you sure you want to clear the auth token?"
+  },
+  "errorLoadFailed": {
+    "message": "Failed to load"
+  },
+  "errorLabel": {
+    "message": "Error"
+  },
+  "hourAgo": {
+    "message": "$COUNT$ hour ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "hoursAgo": {
+    "message": "$COUNT$ hours ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "minuteAgo": {
+    "message": "$COUNT$ minute ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "minutesAgo": {
+    "message": "$COUNT$ minutes ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+
+  "setupTitle": {
+    "message": "ContextFlow"
+  },
+  "setupSubtitle": {
+    "message": "Setup - Get Your Authentication Token"
+  },
+  "step1Title": {
+    "message": "Open ChatGPT and Login"
+  },
+  "step1Content": {
+    "message": "Go to <strong>https://chatgpt.com</strong> and make sure you are logged into your account."
+  },
+  "step2Title": {
+    "message": "Open Developer Tools"
+  },
+  "step2Content": {
+    "message": "On the ChatGPT page, press:"
+  },
+  "step2Windows": {
+    "message": "<strong>Windows/Linux:</strong> F12 or Ctrl + Shift + I"
+  },
+  "step2Mac": {
+    "message": "<strong>Mac:</strong> Cmd + Option + I"
+  },
+  "step2Footer": {
+    "message": "The Developer Tools will open at the bottom or side of the page."
+  },
+  "step3Title": {
+    "message": "Switch to Network Tab"
+  },
+  "step3Content": {
+    "message": "At the top of Developer Tools, click the <strong>Network</strong> tab."
+  },
+  "step4Title": {
+    "message": "Trigger API Request"
+  },
+  "step4Content": {
+    "message": "Send a message in ChatGPT (any content works), or refresh the page (F5).<br>This will trigger an API request from which we can get the token."
+  },
+  "step5Title": {
+    "message": "Find backend-api Request"
+  },
+  "step5Content": {
+    "message": "In the Network tab's request list, find any request starting with <code>backend-api</code>, such as:"
+  },
+  "step5Examples": {
+    "message": "backend-api/conversation<br>backend-api/conversations<br>backend-api/me"
+  },
+  "step5Footer": {
+    "message": "Click on that request."
+  },
+  "step6Title": {
+    "message": "Copy Authorization Token"
+  },
+  "step6Item1": {
+    "message": "In the right panel, click the <strong>Headers</strong> tab"
+  },
+  "step6Item2": {
+    "message": "Scroll down to find the <strong>Request Headers</strong> section"
+  },
+  "step6Item3": {
+    "message": "Find the <strong>authorization:</strong> line"
+  },
+  "step6Item4": {
+    "message": "Its value is in the format <code>Bearer eyJhbGci...</code>"
+  },
+  "step6Item5": {
+    "message": "<strong>Only copy the part after Bearer</strong> (do not include the word Bearer)"
+  },
+  "step6Footer": {
+    "message": "The token is usually very long (1000+ characters) and starts with <code>eyJ</code>."
+  },
+  "step7Title": {
+    "message": "Paste Token"
+  },
+  "step7Label": {
+    "message": "Paste your Access Token:"
+  },
+  "step7Placeholder": {
+    "message": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE5MzQ0ZTY1LWJiYzktNDRkMS1hOWQwLWY5NTdi..."
+  },
+  "testTokenBtn": {
+    "message": "Test Token"
+  },
+  "saveCompleteBtn": {
+    "message": "Save and Complete"
+  },
+  "testingToken": {
+    "message": "Testing..."
+  },
+  "savingToken": {
+    "message": "Saving..."
+  },
+  "securityWarningTitle": {
+    "message": "⚠️ Security Notice:"
+  },
+  "securityWarning1": {
+    "message": "• Token is only stored in your local browser and is never sent to any third-party servers"
+  },
+  "securityWarning2": {
+    "message": "• Token is valid for approximately 24 hours, you'll need to get a new one after it expires"
+  },
+  "securityWarning3": {
+    "message": "• Do not share your token with others"
+  },
+  "tokenAlreadyConfigured": {
+    "message": "You already have a valid token configured. To update, please enter a new token."
+  },
+  "tokenExpiredPleaseUpdate": {
+    "message": "Your token has expired, please get a new token."
+  },
+  "tokenEmpty": {
+    "message": "Token cannot be empty"
+  },
+  "tokenTooShort": {
+    "message": "Token is too short, please make sure you copied the complete token"
+  },
+  "tokenInvalidFormat": {
+    "message": "Token format is incorrect, it should start with eyJ"
+  },
+  "tokenInvalidJWT": {
+    "message": "Token format is incorrect, JWT token should have three parts"
+  },
+  "sidepanelZoomTitle": {
+    "message": "Sidepanel Zoom"
+  },
+  "sidepanelZoomLabel": {
+    "message": "Zoom Percentage:"
+  },
+  "reset": {
+    "message": "reset"
+  },
+  "tokenValidationSuccess": {
+    "message": "✓ Token validation successful!<br>Account: $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "user@example.com"
+      }
+    }
+  },
+  "tokenInvalidOrExpired": {
+    "message": "Token is invalid or expired, please get a new token"
+  },
+  "apiError": {
+    "message": "API returned error: $STATUS$",
+    "placeholders": {
+      "status": {
+        "content": "$1",
+        "example": "401"
+      }
+    }
+  },
+  "networkError": {
+    "message": "Network error: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "Connection failed"
+      }
+    }
+  },
+  "pleaseTestFirst": {
+    "message": "Please test the token first"
+  },
+  "tokenSaved": {
+    "message": "✓ Token saved! Redirecting..."
+  },
+  "saveFailed": {
+    "message": "Save failed: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "Storage error"
+      }
+    }
+  },
+  "accountUnknown": {
+    "message": "Unknown"
+  },
+  "newTokenPlaceholder": {
+    "message": "Enter new token to replace existing token..."
+  },
+  "languageLabel": {
+    "message": "Language:"
+  },
+  "openGraphBtn": {
+    "message": "Open Sidebar"
+  },
+
+  "collapseSettingsTitle": {
+    "message": "Content Collapse Settings"
+  },
+  "collapseEnabled": {
+    "message": "Enable auto collapse"
+  },
+  "collapseThreshold": {
+    "message": "Collapse threshold"
+  },
+  "collapseThresholdUnit": {
+    "message": "characters"
+  },
+  "collapseQuestion": {
+    "message": "Auto collapse questions"
+  },
+  "collapseAnswer": {
+    "message": "Auto collapse answers"
+  },
+  "collapseBtn": {
+    "message": "Collapse"
+  },
+  "expandBtn": {
+    "message": "Expand"
+  },
+  "openFloatingBtn": {
+    "message": "Open Floating Window"
+  },
+
+  "waitingForToken": {
+    "message": "Waiting for token..."
+  },
+  "autoTokenTitle": {
+    "message": "Auto Token Capture"
+  },
+  "autoTokenMessage": {
+    "message": "Token will be automatically captured when you use ChatGPT. Just refresh the ChatGPT page or send a message."
+  },
+  "manualTokenHint": {
+    "message": "Or you can manually configure the token below."
+  },
+  "manualSetupBtn": {
+    "message": "Manual Setup"
+  },
+  "tokenSourceLabel": {
+    "message": "Source"
+  },
+  "tokenSourceAuto": {
+    "message": "🤖 Auto"
+  },
+  "tokenSourceManual": {
+    "message": "✏️ Manual"
+  },
+  "tokenExpiredAutoHelp": {
+    "message": "Token expired. It will be auto-renewed when you use ChatGPT, or you can refresh the page."
+  },
+  "autoTokenReadyHelp": {
+    "message": "Token was automatically captured. It will be auto-renewed when needed."
+  },
+
+  "debugLogTitle": {
+    "message": "Developer Options"
+  },
+  "debugLogEnabled": {
+    "message": "Enable debug logging"
+  },
+  "debugLogVerbose": {
+    "message": "Verbose (log/debug/info)"
+  },
+  "debugLogWarn": {
+    "message": "Warnings"
+  },
+  "debugLogError": {
+    "message": "Errors"
+  }
+}

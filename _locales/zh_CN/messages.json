@@ -1,0 +1,476 @@
+{
+  "extName": {
+    "message": "ContextFlow",
+    "description": "扩展名称"
+  },
+  "extDescription": {
+    "message": "将 ChatGPT 对话可视化为可导航的问答图谱：图谱与时间线、搜索与分支跳转，并支持可选的上下文增强（类别、摘要等）。",
+    "description": "扩展描述"
+  },
+  "extDefaultTitle": {
+    "message": "ContextFlow",
+    "description": "扩展图标的默认标题"
+  },
+
+  "debugPanelTitle": {
+    "message": "ContextFlow - 调试面板"
+  },
+  "debugPanelSubtitle": {
+    "message": "调试面板 - V0.6"
+  },
+  "statusSection": {
+    "message": "状态"
+  },
+  "statusExtension": {
+    "message": "扩展："
+  },
+  "statusActive": {
+    "message": "活跃"
+  },
+  "statusDatabase": {
+    "message": "数据库："
+  },
+  "statusUnknown": {
+    "message": "未知"
+  },
+  "statusConnected": {
+    "message": "已连接"
+  },
+  "statusError": {
+    "message": "错误"
+  },
+  "statusCurrentConv": {
+    "message": "当前对话："
+  },
+  "statusNone": {
+    "message": "无"
+  },
+  "conversationsSection": {
+    "message": "对话列表"
+  },
+  "refreshListBtn": {
+    "message": "刷新列表"
+  },
+  "noConversations": {
+    "message": "尚未加载对话"
+  },
+  "noConversationsYet": {
+    "message": "还没有对话"
+  },
+  "dataDetailsSection": {
+    "message": "数据详情"
+  },
+  "selectConversation": {
+    "message": "选择一个对话以查看详情"
+  },
+  "logsSection": {
+    "message": "日志"
+  },
+  "clearLogsBtn": {
+    "message": "清空日志"
+  },
+  "systemLogLoaded": {
+    "message": "[系统] 调试面板已加载"
+  },
+  "systemLogCleared": {
+    "message": "[系统] 日志已清空"
+  },
+  "footerVersion": {
+    "message": "ContextFlow - 版本 0.6.0"
+  },
+  "untitled": {
+    "message": "无标题"
+  },
+  "failedToLoad": {
+    "message": "加载对话失败"
+  },
+  "failedToLoadDetails": {
+    "message": "加载详情失败"
+  },
+
+  "popupTitle": {
+    "message": "ContextFlow"
+  },
+  "popupSubtitle": {
+    "message": "ChatGPT 对话图谱"
+  },
+  "loading": {
+    "message": "加载中..."
+  },
+  "statusLabel": {
+    "message": "状态"
+  },
+  "notConfigured": {
+    "message": "未配置"
+  },
+  "welcomeTitle": {
+    "message": "欢迎使用 ContextFlow！"
+  },
+  "welcomeMessage": {
+    "message": "ContextFlow 需要您的 ChatGPT 认证令牌以加载对话。<br><br><strong>别担心！</strong>您的令牌安全地存储在您的设备上，永远不会离开您的浏览器。"
+  },
+  "setupTokenBtn": {
+    "message": "设置令牌"
+  },
+  "authenticationLabel": {
+    "message": "认证状态"
+  },
+  "authenticated": {
+    "message": "已认证"
+  },
+  "tokenExpired": {
+    "message": "令牌已过期"
+  },
+  "extensionLabel": {
+    "message": "扩展状态"
+  },
+  "tokenInfoTitle": {
+    "message": "令牌信息"
+  },
+  "tokenLength": {
+    "message": "长度：$LENGTH$ 个字符",
+    "placeholders": {
+      "length": {
+        "content": "$1",
+        "example": "1234"
+      }
+    }
+  },
+  "tokenCaptured": {
+    "message": "获取时间：$TIME$",
+    "placeholders": {
+      "time": {
+        "content": "$1",
+        "example": "2小时前"
+      }
+    }
+  },
+  "tokenExpiredWarning": {
+    "message": "⚠️ 令牌已过期"
+  },
+  "updateTokenBtn": {
+    "message": "更新令牌"
+  },
+  "changeTokenBtn": {
+    "message": "更换令牌"
+  },
+  "clearTokenBtn": {
+    "message": "清除令牌"
+  },
+  "tokenExpiredHelp": {
+    "message": "<strong>⚠️ 您的令牌已过期</strong><br>请点击【更新令牌】从 ChatGPT 获取新令牌。"
+  },
+  "readyHelp": {
+    "message": "<strong>✓ 一切就绪！</strong><br>访问任何 ChatGPT 对话页面即可查看分支可视化。"
+  },
+  "confirmClearToken": {
+    "message": "您确定要清除认证令牌吗？"
+  },
+  "errorLoadFailed": {
+    "message": "加载失败"
+  },
+  "errorLabel": {
+    "message": "错误"
+  },
+  "hourAgo": {
+    "message": "$COUNT$ 小时前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "hoursAgo": {
+    "message": "$COUNT$ 小时前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "minuteAgo": {
+    "message": "$COUNT$ 分钟前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "minutesAgo": {
+    "message": "$COUNT$ 分钟前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+
+  "setupTitle": {
+    "message": "ContextFlow"
+  },
+  "setupSubtitle": {
+    "message": "设置 - 获取您的认证令牌"
+  },
+  "step1Title": {
+    "message": "打开 ChatGPT 并登录"
+  },
+  "step1Content": {
+    "message": "前往 <strong>https://chatgpt.com</strong> 并确保你已经登录你的账号。"
+  },
+  "step2Title": {
+    "message": "打开开发者工具"
+  },
+  "step2Content": {
+    "message": "在 ChatGPT 页面上，按下键盘上的："
+  },
+  "step2Windows": {
+    "message": "<strong>Windows/Linux:</strong> F12 或 Ctrl + Shift + I"
+  },
+  "step2Mac": {
+    "message": "<strong>Mac:</strong> Cmd + Option + I"
+  },
+  "step2Footer": {
+    "message": "开发者工具会在页面底部或右侧打开。"
+  },
+  "step3Title": {
+    "message": "切换到 Network 标签页"
+  },
+  "step3Content": {
+    "message": "在开发者工具的顶部，点击 <strong>Network</strong> (网络) 标签页。"
+  },
+  "step4Title": {
+    "message": "触发 API 请求"
+  },
+  "step4Content": {
+    "message": "在 ChatGPT 中发送一条消息（任何内容都可以），或者刷新页面 (F5)。<br>这会触发 API 请求，我们可以从中获取 token。"
+  },
+  "step5Title": {
+    "message": "查找 backend-api 请求"
+  },
+  "step5Content": {
+    "message": "在 Network 标签页的请求列表中，找到任何以 <code>backend-api</code> 开头的请求，例如："
+  },
+  "step5Examples": {
+    "message": "backend-api/conversation<br>backend-api/conversations<br>backend-api/me"
+  },
+  "step5Footer": {
+    "message": "点击该请求。"
+  },
+  "step6Title": {
+    "message": "复制 Authorization Token"
+  },
+  "step6Item1": {
+    "message": "在右侧面板中，点击 <strong>Headers</strong> (请求头) 标签页"
+  },
+  "step6Item2": {
+    "message": "向下滚动找到 <strong>Request Headers</strong> (请求标头) 部分"
+  },
+  "step6Item3": {
+    "message": "找到 <strong>authorization:</strong> 这一行"
+  },
+  "step6Item4": {
+    "message": "它的值是 <code>Bearer eyJhbGci...</code> 这样的格式"
+  },
+  "step6Item5": {
+    "message": "<strong>只复制 Bearer 后面的部分</strong>（不包括 Bearer 这个词）"
+  },
+  "step6Footer": {
+    "message": "Token 通常很长（1000+ 字符），以 <code>eyJ</code> 开头。"
+  },
+  "step7Title": {
+    "message": "粘贴 Token"
+  },
+  "step7Label": {
+    "message": "粘贴你的 Access Token:"
+  },
+  "step7Placeholder": {
+    "message": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjE5MzQ0ZTY1LWJiYzktNDRkMS1hOWQwLWY5NTdi..."
+  },
+  "testTokenBtn": {
+    "message": "测试 Token"
+  },
+  "saveCompleteBtn": {
+    "message": "保存并完成"
+  },
+  "testingToken": {
+    "message": "测试中..."
+  },
+  "savingToken": {
+    "message": "保存中..."
+  },
+  "securityWarningTitle": {
+    "message": "⚠️ 安全提示："
+  },
+  "securityWarning1": {
+    "message": "• Token 仅存储在你的本地浏览器中，不会发送到任何第三方服务器"
+  },
+  "securityWarning2": {
+    "message": "• Token 有效期约 24 小时，过期后需要重新获取"
+  },
+  "securityWarning3": {
+    "message": "• 不要将 token 分享给他人"
+  },
+  "tokenAlreadyConfigured": {
+    "message": "你已经配置了有效的 token。如需更新，请输入新的 token。"
+  },
+  "tokenExpiredPleaseUpdate": {
+    "message": "你的 token 已过期，请获取新的 token。"
+  },
+  "tokenEmpty": {
+    "message": "Token 不能为空"
+  },
+  "tokenTooShort": {
+    "message": "Token 长度太短，请确保复制了完整的 token"
+  },
+  "tokenInvalidFormat": {
+    "message": "Token 格式不正确，应该以 eyJ 开头"
+  },
+  "tokenInvalidJWT": {
+    "message": "Token 格式不正确，JWT token 应该有三个部分"
+  },
+  "sidepanelZoomTitle": {
+    "message": "侧边栏缩放"
+  },
+  "sidepanelZoomLabel": {
+    "message": "缩放百分比："
+  },
+  "reset": {
+    "message": "重置"
+  },
+  "tokenValidationSuccess": {
+    "message": "✓ Token 验证成功！<br>账号: $EMAIL$",
+    "placeholders": {
+      "email": {
+        "content": "$1",
+        "example": "user@example.com"
+      }
+    }
+  },
+  "tokenInvalidOrExpired": {
+    "message": "Token 无效或已过期，请获取新的 token"
+  },
+  "apiError": {
+    "message": "API 返回错误: $STATUS$",
+    "placeholders": {
+      "status": {
+        "content": "$1",
+        "example": "401"
+      }
+    }
+  },
+  "networkError": {
+    "message": "网络错误: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "连接失败"
+      }
+    }
+  },
+  "pleaseTestFirst": {
+    "message": "请先测试 token"
+  },
+  "tokenSaved": {
+    "message": "✓ Token 已保存！正在跳转..."
+  },
+  "saveFailed": {
+    "message": "保存失败: $ERROR$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "存储错误"
+      }
+    }
+  },
+  "accountUnknown": {
+    "message": "未知"
+  },
+  "newTokenPlaceholder": {
+    "message": "输入新的 token 以替换现有 token..."
+  },
+  "languageLabel": {
+    "message": "语言："
+  },
+  "openGraphBtn": {
+    "message": "打开侧边栏"
+  },
+
+  "collapseSettingsTitle": {
+    "message": "内容折叠设置"
+  },
+  "collapseEnabled": {
+    "message": "启用自动折叠"
+  },
+  "collapseThreshold": {
+    "message": "折叠阈值"
+  },
+  "collapseThresholdUnit": {
+    "message": "字符"
+  },
+  "collapseQuestion": {
+    "message": "自动折叠问题"
+  },
+  "collapseAnswer": {
+    "message": "自动折叠回答"
+  },
+  "collapseBtn": {
+    "message": "折叠"
+  },
+  "expandBtn": {
+    "message": "展开"
+  },
+  "openFloatingBtn": {
+    "message": "打开悬浮窗"
+  },
+
+  "waitingForToken": {
+    "message": "等待获取令牌..."
+  },
+  "autoTokenTitle": {
+    "message": "自动获取令牌"
+  },
+  "autoTokenMessage": {
+    "message": "当您使用 ChatGPT 时，令牌会被自动获取。只需刷新 ChatGPT 页面或发送一条消息即可。"
+  },
+  "manualTokenHint": {
+    "message": "或者您也可以手动配置令牌。"
+  },
+  "manualSetupBtn": {
+    "message": "配置令牌"
+  },
+  "tokenSourceLabel": {
+    "message": "来源"
+  },
+  "tokenSourceAuto": {
+    "message": "🤖 自动"
+  },
+  "tokenSourceManual": {
+    "message": "✏️ 手动"
+  },
+  "tokenExpiredAutoHelp": {
+    "message": "令牌已过期。当您使用 ChatGPT 时会自动更新，或者您可以刷新页面。"
+  },
+  "autoTokenReadyHelp": {
+    "message": "令牌已自动获取。需要时会自动更新。"
+  },
+
+  "debugLogTitle": {
+    "message": "开发者选项"
+  },
+  "debugLogEnabled": {
+    "message": "启用调试日志"
+  },
+  "debugLogVerbose": {
+    "message": "详细信息 (log/debug/info)"
+  },
+  "debugLogWarn": {
+    "message": "警告"
+  },
+  "debugLogError": {
+    "message": "错误"
+  }
+}

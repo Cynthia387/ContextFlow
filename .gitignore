@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# IDE
+.vscode/
+.claude/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Extension packaging
+*.zip
+*.crx
+*.pem
+
+debug/
+docs/auto-generated
+docs/wiki
+release/
+
+AGENTS.md

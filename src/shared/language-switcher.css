@@ -1,0 +1,66 @@
+/**
+ * 语言切换器通用样式
+ */
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.language-switcher label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.language-select {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  font-size: 13px;
+  color: #1f2937;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.language-select:hover {
+  border-color: #9ca3af;
+}
+
+.language-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 紧凑版本（用于 popup） */
+.language-switcher.compact {
+  padding: 4px 8px;
+  gap: 6px;
+  background: transparent;
+  border: none;
+}
+
+.language-switcher.compact label {
+  font-size: 12px;
+}
+
+.language-switcher.compact .language-select {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+/* 在右上角的版本 */
+.language-switcher.top-right {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 100;
+}
