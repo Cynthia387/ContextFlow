@@ -74,9 +74,9 @@
 
 Complex work is rarely a straight line. You iterate, fork prompts, and compare answers. A single scrolling thread mixes all of that into one noisy timeline.
 
-* ** Context pollution:** Failed attempts and old tangents stay in view, diluting what the model should focus on and burning tokens.
-* ** Parallel exploration:** Regenerations and edits create branches that are hard to compare when everything looks like one flat history.
-* ** Cognitive load:** Reconstructing *which prompt led to which answer* after dozens of messages is exhausting.
+* **Context pollution:** Failed attempts and old tangents stay in view, diluting what the model should focus on and burning tokens.
+* **Parallel exploration:** Regenerations and edits create branches that are hard to compare when everything looks like one flat history.
+* **Cognitive load:** Reconstructing *which prompt led to which answer* after dozens of messages is exhausting.
 
 **ContextFlow** turns that thread into a **navigable graph**: branches stay visible, jumps are one click, and optional enrichment (categories, summaries, merge-up) nudges the product toward a structured “context hierarchy” over time.
 
@@ -90,13 +90,13 @@ Complex work is rarely a straight line. You iterate, fork prompts, and compare a
 
 ### At a glance
 
-* ** Flexible UI:** **Sidebar** for a steady workflow, or a **floating window** for quick overlays.
-* ** Two views:**
+* **Flexible UI:** **Sidebar** for a steady workflow, or a **floating window** for quick overlays.
+* **Two views:**
     * **Graph:** A **Q&A tree** on React Flow—**Q** (user) and **A** (assistant) nodes with automatic layout.
     * **Timeline:** A Git-style vertical tree for fine-grained history and edits.
-* ** Jump to any node:** Open the exact message in the branch you picked.
-* ** Search:** Find prompts or answers across the whole tree.
-* ** Utilities:** Message auto-folding; more export and workflow tools planned.
+* **Jump to any node:** Open the exact message in the branch you picked.
+* **Search:** Find prompts or answers across the whole tree.
+* **Utilities:** Message auto-folding; more export and workflow tools planned.
 
 ### Sidebar: conversation command center
 
